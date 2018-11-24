@@ -25,11 +25,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mNameEditText = (EditText) findViewById(R.id.name_edit);
         mAgeEditText = (EditText) findViewById(R.id.age_edit);
         // 버튼 이벤트 처리
+        // this는 MainActivity로 클릭이 발생했을 때, MainActivity가 처리하겠다
         findViewById(R.id.submit_button).setOnClickListener(this);
     }
 
     @Override
-    public void onClick(View v) {
+    public void onClick(View v) {   //View.OnclickListener의 추상메서드
         // SecondActivity로 전환하겠다는 intent
         Intent intent = new Intent(this, SecondActivity.class);
         // 이름, 나이 가져와서 intent에 추가
@@ -47,7 +48,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 && data != null) {
             // 결과를 받음
             String result = data.getStringExtra("result");
-            //토스트 메시지 표시
+            /**
+             * 토스트 메시지를 띄우려면 Context, CharSequence, int 세가지 인수가 필요
+             */
             Toast.makeText(MainActivity.this, result, Toast.LENGTH_SHORT).show();
 
         }
