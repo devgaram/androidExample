@@ -1,0 +1,10 @@
+<resources>
+<string name="app_name">AndroidExample</string>
+<string name="edit_message">메시지를 입력하세요</string>
+<string name="button_send">보내기</string>
+</resources><!--
+    문자열 리소스들을 가지고 있다.
+    앱 제목을 포함하여 앱 내에서 표시될 모든 문자열들은 리소스 형태로 관리하는 것이 좋다.
+    * 다국어를 지원하는 앱을 만들 때, 언어별로 문자열 리소스를 만들어서 국제화에 대응하기 쉽다.
+-->
+

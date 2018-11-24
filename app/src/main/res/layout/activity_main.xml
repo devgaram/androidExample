@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    >
+    <EditText android:id="@+id/edit_message"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/edit_message"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_send"
+        android:onClick="sendMessage"/>
+</LinearLayout>
+    <!--
+    설명)
+    1. LinearLayout
+    자식뷰를 수직 또는 수평으로만 배치 가능하다.
+    서로 겹치지 않고 차곡차고 배치된다.
+
+    1) android:layout_width="match_parent"
+    match_parent : 부모에 값을 맞추겠다.
+    wrap_content : 뷰의 크기를 내용에 딱 맞게 정하겠다.
+    * 여기선 루트 뷰가 기기 자체가 되어 기기에 가로세로가 꽉 찬 배열이 된다.
+    2) android:orientation="horizontal"
+    자식뷰 방향을 수평으로 하겠다.
+
+
+    2. EditText
+    사용자 입력을 받을 수 있는 뷰
+
+    1) android:id
+    android:id="@+id/edit_message"
+    뷰를 식별할 수 있는 유일한 값으로 지정한다.
+    이름을 통해 자바코드에서 뷰에 접근 가능하다.
+    * 앱 컴파일하면 여기서 정의한 id 명은 프로젝트의 R.java 파일 안에 새로 생성된다.
+    * @ : 리소스를 의미 ex) @string 은 res/values/strings.xml 의 리소스
+    * 새로 생성할 때는 + 사용, 생성된 id 참조할 때는 + 사용 안한다.
+    2)android:hint
+    html의 placeholder와 같은 역할
+    3)editText를 남는 영역이 없도록 꽉 채우고 싶다.
+    android:layout_width="wrap_content" 를 아래와 같이 수정한다.
+    android:layout_width="0dp"
+    android:layout_weight="1"
+    가중치를 적용하여 남는 영역을 꽉 채울 수 있다.
+    가중치는 1대1, 1대2, 1대3 등의 정확한 비율로 뷰의 길이를 적용할 때 사용한다.
+    모든 뷰의 가중치 속성인 weight의 기본값은 0 이다.
+    -->
