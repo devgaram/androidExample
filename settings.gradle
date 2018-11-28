@@ -1,1 +1,1 @@
-include ':app', ':activityexam'
+include ':app', ':activityexam', ':implicitintentexam', ':actionsendexam'
