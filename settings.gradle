@@ -1,1 +1,1 @@
-include ':app', ':activityexam', ':implicitintentexam', ':actionsendexam'
+include ':app', ':activityexam', ':implicitintentexam', ':actionsendexam', ':adapterviewexam'
