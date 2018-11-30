@@ -64,9 +64,10 @@
 - 일반 멤버 필드는 없고, public, static, final로 선언한 상수만 있다.
 - 그 자체를 인스턴스화(객체 생성) 불가. 다른 클래스로 구현할 때는 implements 키워드로 구현을 선언해야한다.
 - 다중 상속 개념 지원하는 형태로 사용 가능
-
+[출처]:http://nyebo.net/2016/01/just-java-summary/
+---
 - 캡슐화
 외부에서 변수에 직접 접근할 수 없도록 하는 객체지향 프로그래밍 방법이다.    
 캡슐화된 변수에 접근하려면 getter, setter 메서드를 만들어서 접근해야한다.
 
-[출처]:http://nyebo.net/2016/01/just-java-summary/
+
