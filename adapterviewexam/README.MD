@@ -31,17 +31,17 @@ MyFirstAdapter adapter = new MyFirstAdapter(data);
 ListView listView = (ListView) findViewById(R.id.list_view);
 listView.setAdapter(adapter);
 ```
-2. 클릭 이벤트 구현
+2. 클릭 이벤트 구현    
 **public static interface AdapterView.OnItemClickListener**    
 android.widget.AdapterView.OnItemClickListener    
 *어댑터뷰의 아이템 클릭시 호출되는 콜백 메서드를 정의한 인터페이스*
 
 Public methods    
-**public abstract void onItemClick (AdapterView<?> parent, View view, int position, long id)**
-*parent : 클릭이 일어난 AdapterView *    
-*view : AdapterView 안의 클릭된 View = 클릭된 아이템 뷰*    
-*position : 클릭된 아이템 뷰의 위치*    
-*id : 클릭된 아이템 뷰의 row ID*
+**public abstract void onItemClick (AdapterView<?> parent, View view, int position, long id)**    
+&nbsp;*parent : 클릭이 일어난 AdapterView *    
+&nbsp;*view : AdapterView 안의 클릭된 View = 클릭된 아이템 뷰*    
+&nbsp;*position : 클릭된 아이템 뷰의 위치*    
+&nbsp;*id : 클릭된 아이템 뷰의 row ID*
 
 
 ```{.java}
