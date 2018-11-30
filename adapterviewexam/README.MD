@@ -38,7 +38,7 @@ android.widget.AdapterView.OnItemClickListener
 
 Public methods    
 **public abstract void onItemClick (AdapterView<?> parent, View view, int position, long id)**    
-&nbsp;*parent : 클릭이 일어난 AdapterView *    
+&nbsp;*parent : 클릭이 일어난 AdapterView*    
 &nbsp;*view : AdapterView 안의 클릭된 View = 클릭된 아이템 뷰*    
 &nbsp;*position : 클릭된 아이템 뷰의 위치*    
 &nbsp;*id : 클릭된 아이템 뷰의 row ID*
@@ -52,3 +52,55 @@ listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
    }
 });
 ```
+
+### 예제 구성
+1. Weather.java
+날씨를 표현하는 모델클래스    
+*toString() : 모든 클래스가 가지고 있는 기본메서디로 디버깅이나 로그에서 정보 확인을 위해 toString() 메서드 재정의한다.*
+
+2. MyFirstAdapter.java    
+추상클래스인 BaseAdapter를 상속받는 클래스로 추상 메서드들을 구현해야 한다.    
+*BaseAdapter는 어댑터의 기능을 추상화해 둔 추상 클래스, 각 메서드 재정의 필요*    
+* 생성자는 데이터를 전달받는다.
+
+getView() 작성    
+각 아이템이 화면에 표시될 때마다 호출되며, 여기서 화면에 표시할 레이아웃과 데이터를 모두 작성해야한다.
+
+```{.java}
+ @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        /**
+         * LayoutInflater 클래스란?
+         * Activity 이외의 클래스에서 Context를 통해 XML로 정의한 레이아웃을 로드하여 View로 반환해주는 클래스
+         */
+        ViewHolder holder;
+        if (convertView == null) {
+            holder = new ViewHolder();
+            convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_weather, parent, false);
+            ImageView weatherImage = (ImageView) convertView.findViewById(R.id.weather_image);
+            TextView cityText = (TextView) convertView.findViewById(R.id.city_text);
+            TextView tempText = (TextView) convertView.findViewById(R.id.temp_text);
+            holder.cityText = cityText;
+            holder.tempText = tempText;
+            holder.weatherImage = weatherImage;
+            convertView.setTag(holder);
+        } else {
+            holder = (ViewHolder) convertView.getTag();
+        }
+
+        Weather weather = mData.get(position);
+        holder.cityText.setText(weather.getCity());
+        holder.tempText.setText(weather.getTemp());
+        holder.weatherImage.setImageResource(mWeatherImageMap.get(weather.getWeather()));
+        return convertView;
+    }
+    static class ViewHolder {
+        ImageView weatherImage;
+        TextView cityText;
+        TextView tempText;
+    }
+```
+
+####LayoutInflater
+####Context
+####ViewHolder
