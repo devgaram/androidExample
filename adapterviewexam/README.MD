@@ -32,12 +32,10 @@ ListView listView = (ListView) findViewById(R.id.list_view);
 listView.setAdapter(adapter);
 ```
 2. 클릭 이벤트 구현    
-**public static interface AdapterView.OnItemClickListener**    
+- **public static interface AdapterView.OnItemClickListener**    
 android.widget.AdapterView.OnItemClickListener    
 *어댑터뷰의 아이템 클릭시 호출되는 콜백 메서드를 정의한 인터페이스*
-
-Public methods    
-**public abstract void onItemClick (AdapterView<?> parent, View view, int position, long id)**    
+- **public abstract void onItemClick (AdapterView<?> parent, View view, int position, long id)**    
 &nbsp;*parent : 클릭이 일어난 AdapterView*    
 &nbsp;*view : AdapterView 안의 클릭된 View = 클릭된 아이템 뷰*    
 &nbsp;*position : 클릭된 아이템 뷰의 위치*    
@@ -61,10 +59,11 @@ listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 2. MyFirstAdapter.java    
 추상클래스인 BaseAdapter를 상속받는 클래스로 추상 메서드들을 구현해야 한다.    
 *BaseAdapter는 어댑터의 기능을 추상화해 둔 추상 클래스, 각 메서드 재정의 필요*    
-* 생성자는 데이터를 전달받는다.
 
-getView() 작성    
-각 아이템이 화면에 표시될 때마다 호출되며, 여기서 화면에 표시할 레이아웃과 데이터를 모두 작성해야한다.
+- 핵심메서드 getView() 작성    
+	- 각 아이템이 화면에 표시될 때마다 호출되며, 여기서 화면에 표시할 레이아웃과 데이터를 모두 작성해야한다.    
+	- ListView의 각 아이템에 해당되는 View는 화면에 보이는 만큼만 생성되고 스크롤 시에 안쓰이는 아이템은 새로 보이는 아이템의 View로 재사용된다.    
+	**두번째 파라미터인 convertView가 재사용 시에 이전에 생성되었던 getView()가 반환했던 View**
 
 ```{.java}
  @Override
@@ -101,6 +100,19 @@ getView() 작성
     }
 ```
 
-####LayoutInflater
-####Context
-####ViewHolder
+1. LayoutInflater 추상 클래스
+- Activity 이외의 클래스에서 Context를 통해 XML로 정의한 레이아웃을 로드하여 View로 반환해주는 클래스
+- 레이아웃 XML 파일을 View 객체로 반환한다.
+- LayoutInflater 인스턴스 받는 법 : **Activity.getLayoutInflater()** or **Context.getSystemService(Class)**
+- Public methods
+	1. LayoutInflater.from(parent.getContext())    
+		현재 Context로부터 LayoutInflater 인스턴스를 반환받는다.    
+		*static LayoutInflater*
+    2. LayoutInflater.from(parent.getContext()).inflate(R.layout.item_weather, parent, false);    
+    	inflate(int resource, ViewGroup root, boolean attachToRoot)    
+        xml파일 item_weather을 View 객체 형태로 반환한다.
+        
+2. ViewHolder
+자주 사용하는 뷰를 한번 로드하면 재사용하고 표시할 내용만 교체하기 위한 패턴
+	1. View 안에 여러 데이터를 담고 싶을 때, getTag(), setTag()를 사용한다.
+		- android.view.View, Tag는 Object 타입이라 다양한 용도로 사용가능
