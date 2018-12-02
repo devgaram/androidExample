@@ -1,5 +1,6 @@
 package org.androidtown.adapterviewexam;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,6 +53,7 @@ public class MyFirstAdapter extends BaseAdapter {
          * Activity 이외의 클래스에서 Context를 통해 XML로 정의한 레이아웃을 로드하여 View로 반환해주는 클래스
          */
         ViewHolder holder;
+        Log.i("태그",position +"");
         if (convertView == null) {
             holder = new ViewHolder();
             convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_weather, parent, false);
@@ -67,9 +69,10 @@ public class MyFirstAdapter extends BaseAdapter {
         }
 
         Weather weather = mData.get(position);
-        holder.cityText.setText(weather.getCity());
+        holder.cityText.setText(weather.getCity()+position);
         holder.tempText.setText(weather.getTemp());
         holder.weatherImage.setImageResource(mWeatherImageMap.get(weather.getWeather()));
+
         return convertView;
     }
     static class ViewHolder {

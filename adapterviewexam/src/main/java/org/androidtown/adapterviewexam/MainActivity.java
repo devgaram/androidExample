@@ -24,6 +24,13 @@ public class MainActivity extends AppCompatActivity {
         data.add(new Weather("서울", "28도", "구름"));
         data.add(new Weather("광주", "30도", "비"));
         data.add(new Weather("부산", "20도", "비"));
+        data.add(new Weather("수원", "25도", "맑음"));
+        data.add(new Weather("안양", "22도", "비"));
+        data.add(new Weather("부천", "22도", "구름"));
+        data.add(new Weather("성남", "24도", "맑음"));
+        data.add(new Weather("서울", "28도", "구름"));
+        data.add(new Weather("광주", "30도", "비"));
+        data.add(new Weather("부산", "20도", "비"));
          /**
          * 간단한 리스트나 배열을 표현할 수 있는 기본 어댑터
          * context, 기본 정의된 레이아웃 id, List(ArrayList)
