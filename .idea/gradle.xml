@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/adapterviewexam" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/implicitintentexam" />
+            <option value="$PROJECT_DIR$/recyclerviewexam" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
