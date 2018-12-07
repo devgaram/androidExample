@@ -9,6 +9,7 @@
 * 프래그먼트는 자체 수명 주기를 가진다.
 * 프래그먼트는 부모-자식 관계를 가질 수 있다.
 <br/><br/>
+
 #### 생명주기 (소속 액티비티가 실행 중일 때)
 
 최소한 다음과 같은 수명 주기 메서드를 구현해야한다.
@@ -60,6 +61,7 @@ public class ColorFragment extends Fragment {
 프래그먼트 매니저는 액티비티 처럼 백스택을 가지고 있음.
 * 액티비티 내 XML에 포함된 프래그먼트를 findFragmentById() 메서드로 가져오기 또는 findFragmentByTag()로 가져오기
 * 액티비티 백스택에서 프래그먼트를 popBackStack() 메서드로 빠져나오게 하여 액티비티의 뒤로 가기와 같은 효과를 냄 ( addToBackStack() : 프래그먼트 매니저의 백스택에 프래그먼트 추가하는 메서드 )
+
 ```
 public class MainActivity extends AppCompatActivity {
 
@@ -82,6 +84,7 @@ View listView = getActivity().findViewById(R.id.list);
 ###### 프래그먼트 교체, 삭제, 추가
 프래그먼트를 교체하기 위해서는 <fragment<fragment>>를 <FrameLayout<FrameLayout>>과 같은 레이아웃으로 감싸줘야한다.    
 **프래그먼트 트랜지션 수행** add(), remove(), replace() 같은 메서드를 사용하고 commit()을 수행하면 트랜지션이 적용된다.
+    
 ```
 public class MainActivity extends AppCompatActivity {
 
