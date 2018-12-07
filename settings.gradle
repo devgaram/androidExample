@@ -1,1 +1,1 @@
-include ':app', ':activityexam', ':implicitintentexam', ':actionsendexam', ':adapterviewexam', ':recyclerviewexam', ':fragmentexam', ':exitdialogfragment'
+include ':app', ':activityexam', ':implicitintentexam', ':actionsendexam', ':adapterviewexam', ':recyclerviewexam', ':fragmentexam', ':exitdialogfragment', ':callbackexam'
